@@ -143,7 +143,9 @@ PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
 
 # Add display-commonsys-intf to PRODUCT_SOONG_NAMESPACES for QSSI supported platforms
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(TARGET_USES_CUSTOM_DISPLAY_INTERFACE),true)
     PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys-intf/display
+endif # TARGET_USES_CUSTOM_DISPLAY_INTERFACE
 endif
 
 # Add data-ipa-cfg-mgr to PRODUCT_SOONG_NAMESPACES if needed
